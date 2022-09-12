@@ -1,0 +1,4 @@
+{
+  "extends": ["airbnb", "airbnb/hooks"],
+  "plugins": ["import", "react", "react-hooks"]
+}
