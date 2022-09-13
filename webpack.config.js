@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
-let mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
 module.exports = {
   mode,
@@ -25,8 +25,8 @@ module.exports = {
     hot: true,
     open: {
       app: {
-        name: 'google-chrome'
-      }
+        name: 'google-chrome',
+      },
     },
     historyApiFallback: true,
   },
@@ -55,10 +55,10 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {cacheDirectory: true },
+          options: { cacheDirectory: true },
         },
       },
-    ]
+    ],
   },
 
   plugins: [
@@ -66,4 +66,4 @@ module.exports = {
     new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
     process.env.SERVE ? new ReactRefreshWebpackPlugin() : undefined,
   ],
-}
+};
