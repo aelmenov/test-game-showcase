@@ -1,12 +1,17 @@
 import React from 'react';
-import { useParams } from 'react-router';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { selectGame } from './games/games-slice';
 
 export const Game = () => {
-  let { gameId } = useParams();
+  const { gameId } = useParams();
+  const game = useSelector(selectGame(decodeURIComponent(gameId)));
 
   return (
-    <div>
-      Yo, it's {gameId}
-    </div>
+    <main className="flex justify-center items-center h-screen w-screen">
+      <h2 className="text-2xl font-sans font-extrabold">
+        {game?.title}
+      </h2>
+    </main>
   );
 }
